@@ -26,7 +26,7 @@ class OAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('artdarek/oauth-4-laravel');
+        $this->package('dpgover/oauth-4-laravel');
     }
 
     /**
