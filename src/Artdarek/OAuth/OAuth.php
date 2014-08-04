@@ -65,22 +65,21 @@ class OAuth
      *
      * @param string $service
      */
-    public function setConfig( $service )
+    public function setConfig($service)
     {
-        // if config/oauth-4-laravel.php exists use this one
-        if ( Config::get('oauth-4-laravel.consumers') != null ) {
-
+        if (Config::get('oauth-4-laravel.consumers') != null)
+        { // if config/oauth-4-laravel.php exists use this one
             $this->_storage_name = Config::get('oauth-4-laravel.storage', 'Session');
             $this->_client_id = Config::get("oauth-4-laravel.consumers.$service.client_id");
             $this->_client_secret = Config::get("oauth-4-laravel.consumers.$service.client_secret");
-            $this->_scope = Config::get("oauth-4-laravel.consumers.$service.scope", array() );
-
-        // esle try to find config in packages configs
-        } else {
+            $this->_scope = Config::get("oauth-4-laravel.consumers.$service.scope", []);
+        }
+        else
+        { // else try to find config in packages configs
             $this->_storage_name = Config::get('oauth-4-laravel::storage', 'Session');
             $this->_client_id = Config::get("oauth-4-laravel::consumers.$service.client_id");
             $this->_client_secret = Config::get("oauth-4-laravel::consumers.$service.client_secret");
-            $this->_scope = Config::get("oauth-4-laravel::consumers.$service.scope", array() );
+            $this->_scope = Config::get("oauth-4-laravel::consumers.$service.scope", []);
         }
     }
 
@@ -109,6 +108,21 @@ class OAuth
         $httpClientClass = "\\OAuth\\Common\\Http\\Client\\$httpClientName";
         $this->_serviceFactory->setHttpClient(new $httpClientClass());
     }
+
+	/**
+	 * Register a custom service to classname mapping.
+	 *
+	 * @param string $serviceName Name of the service
+	 * @param string $className   Class to instantiate
+	 *
+	 * @return void
+	 *
+	 * @throws Exception If the class is nonexistent or does not implement a valid ServiceInterface
+	 */
+	public function registerService($serviceName, $className)
+	{
+		$this->_serviceFactory->registerService($serviceName, $className);
+	}
 
     /**
      * @param  string $service
