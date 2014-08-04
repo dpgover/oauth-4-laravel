@@ -1,17 +1,20 @@
 {
-    "name": "artdarek/oauth-4-laravel",
+    "name": "dpgover/oauth-4-laravel",
     "type": "library",
     "description": "OAuth Service Provider for Laravel 4",
     "keywords": ["OAuth", "Lusitanian", "laravel", "php"],
-    "homepage": "https://github.com/artdarek/oauth-4-laravel",
+    "homepage": "https://github.com/dpgover/oauth-4-laravel",
     "license": "MIT",
-    "authors": [
-        {
+    "authors": [{
             "name": "Artdarek",
             "email": "artdarek@gmail.com",
             "role": "Developer"
-        }
-    ],
+        }, {
+			"name": "Dario Govergun",
+			"email": "dpgover@gmail.com",
+			"homepage": "https://github.com/dpgover",
+			"role": "Developer"
+    }],
     "require": {
         "php": ">=5.3",     
         "lusitanian/oauth": "~0.3"

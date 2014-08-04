@@ -62,7 +62,7 @@ Add oauth-4-laravel to your composer.json file:
 
 ```
 "require": {
-  "artdarek/oauth-4-laravel": "dev-master"
+  "dpgover/oauth-4-laravel": "dev-master"
 }
 ```
 
